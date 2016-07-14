@@ -1,0 +1,49 @@
+<div id="accountSummary">
+	<div id="account">
+		<h2>
+			<strong><span style="display: block; font-size:24px; line-height:32px;">Savings Account</span></strong>
+			<small><span style="display: block; font-size:14px; line-height: 20px;">101010121</span></small>
+		</h2>
+	</div>
+	<div id="balance">
+		<div id="currentBalance">
+			<strong><span style="display: block; font-size:14px; line-height:20px;">Current Balance</span></strong>
+			<small><span style="display: block; font-size:20px; line-height:32px;">$7,654,321.00</span></small>
+		</div>
+		<div id="availableBalance">
+			<strong><span style="display: block; font-size:14px; line-height:20px;">Available Balance</span></strong>
+			<small><span style="display: block; font-size:20px; line-height:32px;">$7,654,321.00</span></small>
+		</div>
+	</div>
+</div>
+
+<div id="search">
+	<div class="container">
+		<input type="text" ng-model="searchQuery" placeholder="Search text here">
+		<i class="searchBtn" ng-click="clearSearch()">
+			<img src="img/magnifier.png" alt="" width="24px" height="24px" style="padding: 5px 5px;" ng-hide="searchQuery.length>0">
+			<img src="img/clear.png" alt="" width="24px" height="24px" style="padding: 5px 5px;" ng-show="searchQuery.length>0">
+		</i> 
+	</div>
+</div>
+	
+<div class="container">
+	<table> 
+		<thead> 
+			<tr> 
+			    <th>Date</th> 
+			    <th>Description</th> 
+			    <th>Debit/Credit</th> 
+			    <th>Balance</th> 
+			</tr> 
+		</thead> 
+		<tbody> 
+			<tr ng-repeat="transactionItem in transaction | filter:{Description: searchQuery}"> 
+			    <td>{{transactionItem["Date"] | date: 'dd MMM yyyy'}}</td> 
+			    <td>{{transactionItem["Description"]}}</td> 
+			    <td>${{transactionItem["DebitCredit"]}}</td> 
+			    <td>${{transactionItem["Balance"]}}</td> 
+			</tr> 
+		</tbody> 
+	</table> 
+</div>

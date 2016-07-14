@@ -1,0 +1,184 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.alignRight {
+  text-align: right;
+}
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+#accountSummary {
+  display: block;
+  height: 100px;
+  padding: 20px 15px;
+  font-family: Arial;
+  background-color: #32c8f9;
+  border-bottom: 5px solid #333;
+}
+#accountSummary #account {
+  width: 40%;
+  display: block;
+  float: left;
+}
+#accountSummary #balance {
+  width: 60px;
+  display: block;
+  position: relative;
+  float: right;
+  margin-top: 20px;
+  color: #fff;
+}
+#accountSummary #currentBalance {
+  position: absolute;
+  right: 200px;
+}
+#accountSummary #availableBalance {
+  position: absolute;
+  right: 0;
+}
+#search {
+  display: block;
+  height: 60px;
+  padding: 20px 15px;
+  margin-bottom: 20px;
+  background-color: #aaa;
+}
+#search input {
+  display: inline-block;
+  float: left;
+  height: 32px;
+  padding-left: 5px;
+}
+#search .searchBtn {
+  display: block;
+  float: left;
+  background-color: #e1255d;
+}
+#search .searchBtn img {
+  margin: auto auto;
+}
+/* RESPONSIVE TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Tahoma;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+td,
+th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+@media screen and (max-width: 959px) {
+  .container {
+    width: 100%;
+  }
+  #accountSummary {
+    height: 200px;
+  }
+  #accountSummary #account {
+    width: 60%;
+    display: block;
+    float: left;
+  }
+  #accountSummary #balance {
+    width: 40%;
+    position: relative;
+    float: right;
+    margin-top: 20px;
+  }
+  #accountSummary #currentBalance {
+    top: 0;
+    right: 0;
+    left: inherit;
+  }
+  #accountSummary #availableBalance {
+    top: 100px;
+  }
+}
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .container {
+    width: 100%;
+  }
+  #accountSummary #account {
+    width: 100%;
+    display: block;
+    float: left;
+  }
+  #accountSummary #balance {
+    width: 100%;
+    position: relative;
+    float: right;
+  }
+  #accountSummary #currentBalance {
+    left: 0;
+    top: 0;
+  }
+  #accountSummary #availableBalance {
+    right: 0;
+    top: 0;
+  }
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #ccc;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+  td:before {
+    font-weight: bold;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+  }
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "Date";
+  }
+  td:nth-of-type(2):before {
+    content: "Description";
+  }
+  td:nth-of-type(3):before {
+    content: "Debit/Credit";
+  }
+  td:nth-of-type(4):before {
+    content: "Balance";
+  }
+}
